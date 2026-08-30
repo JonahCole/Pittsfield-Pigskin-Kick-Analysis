@@ -115,3 +115,58 @@ button{font:inherit}
   .advice-grid{grid-template-columns:1fr}
   .ticker{display:none}
 }
+
+
+/* V3.2 MOBILE GAME LAYOUT -------------------------------------------------- */
+@media (max-width:760px){
+  html,body{width:100%;min-height:100%;background:#03070d}
+  body{padding:0;overflow-x:hidden}
+  .console-shell{width:100%;max-width:none;min-height:100dvh;margin:0;border:0;box-shadow:none;background:#03070d}
+  .screen{min-height:100dvh}
+
+  /* The kick is a game screen, not a tall web page. */
+  .kick-screen.active{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:100dvh;
+    padding:max(10px,env(safe-area-inset-top)) 0 max(10px,env(safe-area-inset-bottom));
+    overflow:hidden;
+    background:#03070d;
+  }
+  .kick-screen .game-frame{
+    width:100%;
+    max-width:100vw;
+    min-height:0;
+    max-height:none;
+    aspect-ratio:4/3;
+    margin:0;
+    border:0;
+    box-shadow:none;
+    background:#000;
+  }
+  .kick-screen #gameCanvas{width:100%;height:100%;border:0}
+
+  /* The reference art already includes the instruction panel. */
+  .kick-screen .kick-prompt{display:none!important}
+  .kick-screen .kick-footer,.kick-screen .game-hud{display:none!important}
+
+  /* Keep sound available elsewhere; get it off the field on mobile. */
+  body[data-screen="kick"] .sound-toggle{display:none}
+  .sound-toggle{top:max(8px,env(safe-area-inset-top));right:8px;padding:6px 9px;font-size:9px;opacity:.9}
+
+  /* Results stay contained inside the game image rather than covering page chrome. */
+  .kick-screen .result-flash{font-size:clamp(48px,17vw,82px);-webkit-text-stroke:1px #fff;text-align:center;padding:12px}
+  .kick-screen .timeline-glitch{padding:18px}
+  .kick-screen .timeline-glitch strong{font-size:clamp(28px,9vw,48px)}
+
+  /* Other screens retain their vertical layouts. */
+  .start-screen.active,.shame-screen.active,.advice-screen.active{min-height:100dvh}
+}
+
+/* Very tall phones: raise the game slightly from dead center so it feels intentional. */
+@media (max-width:760px) and (min-aspect-ratio:9/20){
+  .kick-screen.active{justify-content:center}
+}

@@ -217,6 +217,7 @@
 
   function showScreen(name) {
     currentScreen = name;
+    document.body.dataset.screen = name;
     Object.entries(screens).forEach(([key, el]) => el.classList.toggle('active', key === name));
     play('blip', .28);
     if (name === 'kick') {
@@ -607,6 +608,7 @@
   });
   window.addEventListener('resize', resizeCanvas);
 
+  document.body.dataset.screen = 'start';
   updateStats();
   newWind();
 })();

@@ -30,3 +30,10 @@ No build step, packages, API keys, or backend are required.
 - Fixed inactive shame screen overlaying successful kicks.
 - Recalibrated kick physics to the 4:3 late-90s game background.
 - Added cache-busting query versions for GitHub Pages.
+
+
+## V3.2 mobile update
+- Kick screen is vertically centered in the phone viewport.
+- Removed duplicate mobile swipe prompt and oversized sound control over the field.
+- Removed mobile double borders / dead page space.
+- Uses dynamic viewport height (`100dvh`) for modern mobile browsers.
