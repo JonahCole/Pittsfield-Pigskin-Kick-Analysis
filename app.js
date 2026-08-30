@@ -269,11 +269,11 @@
     let shane = pair.shane;
 
     // Recurring obsessions make the booth feel like two actual people, not quote cards.
-    if (Math.random() < .18 && !/my kicker is Gay/i.test(shane)) {
+    if (Math.random() < .50 && !/my kicker is Gay/i.test(shane)) {
       shane += ` ${shaneTags[Math.floor(Math.random() * shaneTags.length)]}`;
       if (Math.random() < .28) nate += ' Yes, Shane. We know about Matt Gay.';
     }
-    if (Math.random() < .14) {
+    if (Math.random() < .50) {
       nate += ` ${nateGripes[Math.floor(Math.random() * nateGripes.length)]}`;
     }
 

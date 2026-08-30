@@ -1,3 +1,7 @@
+# Pittsfield Pigskin V3.5
+
+Final tuning: Shane Matt Gay running joke and Nate best-draft/luck gripe each fire on ~50% of advice outcomes. Gameplay and layout unchanged.
+
 # Pittsfield Pigskin Fantasy Draft Advice — V3.4 SHIP
 
 Ship candidate. Keeps the stable V3.3 mobile layout and harder timing mechanic, with the final content pass:
