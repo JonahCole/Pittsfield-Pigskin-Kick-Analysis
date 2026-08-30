@@ -1,3 +1,7 @@
+# Fantasy Kick Advice – V3.3
+
+Harder kick mechanic added: the kick now uses a moving timing window on top of the swipe, increasing miss probability without changing the overall flow.
+
 # Free Fantasy Advice — Draft Night Game V2
 
 A static, mobile-friendly fantasy-football field goal mini-game built for GitHub Pages.

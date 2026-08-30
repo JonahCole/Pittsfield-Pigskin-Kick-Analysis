@@ -20,6 +20,7 @@
   const shameBy = document.getElementById('shameBy');
   const missLabel = document.getElementById('missLabel');
   const soundBtn = document.getElementById('soundBtn');
+  const body = document.body;
 
   const audio = {
     kick: new Audio('assets/audio/kick.wav'),
@@ -205,6 +206,8 @@
   let lastAdvice = -1;
   let lastMiss = '';
   let currentScreen = 'start';
+  let aimOsc = 0;
+  let aimLoopId = 0;
 
   const BASE_W = 960;
   const BASE_H = 720;
@@ -284,6 +287,54 @@
   }
   function X(v) { return v * dims().sx; }
   function Y(v) { return v * dims().sy; }
+
+  function kickLoop(now = performance.now()) {
+    if (currentScreen === 'kick' && ready && !dragging && !anim) {
+      aimOsc = Math.sin(now / 280);
+      draw();
+    }
+    aimLoopId = requestAnimationFrame(kickLoop);
+  }
+
+  function drawAimAssist() {
+    const markerX = goal.x + aimOsc * 64;
+    const markerY = 176;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,.95)';
+    ctx.lineWidth = Math.max(2, X(3));
+    ctx.beginPath();
+    ctx.arc(X(markerX), Y(markerY), X(12), 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle = '#df2923';
+    ctx.lineWidth = Math.max(2, X(3));
+    ctx.beginPath();
+    ctx.moveTo(X(markerX - 6), Y(markerY));
+    ctx.lineTo(X(markerX + 6), Y(markerY));
+    ctx.moveTo(X(markerX), Y(markerY - 6));
+    ctx.lineTo(X(markerX), Y(markerY + 6));
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(0,0,0,.78)';
+    ctx.fillRect(X(20), Y(18), X(180), Y(52));
+    ctx.strokeStyle = '#96aebb';
+    ctx.lineWidth = Math.max(1, X(2));
+    ctx.strokeRect(X(20), Y(18), X(180), Y(52));
+    ctx.fillStyle = '#f1cf2d';
+    ctx.font = `900 ${Math.max(11, X(13))}px Arial`;
+    ctx.textAlign = 'left';
+    ctx.fillText('TIMING WINDOW', X(31), Y(36));
+    ctx.fillStyle = '#dce6ed';
+    ctx.fillRect(X(30), Y(45), X(160), Y(10));
+    ctx.fillStyle = '#2fbc42';
+    ctx.fillRect(X(97), Y(45), X(26), Y(10));
+    ctx.fillStyle = '#ff3e2f';
+    ctx.beginPath();
+    ctx.moveTo(X(110 + aimOsc * 70), Y(60));
+    ctx.lineTo(X(104 + aimOsc * 70), Y(68));
+    ctx.lineTo(X(116 + aimOsc * 70), Y(68));
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
 
   function drawCrowd(horizonY) {
     const d = dims();
@@ -489,6 +540,7 @@
     } else {
       drawStadium();
     }
+    if (ready && !dragging && !anim) drawAimAssist();
     if (anim) drawBall(anim.x, anim.y, anim.scale, anim.rot);
     drawSwipe();
   }
@@ -520,13 +572,14 @@
     if (navigator.vibrate) navigator.vibrate(28);
 
     const distance = Math.hypot(dx, dy);
-    const power = Math.max(0, Math.min(1, distance / 245));
-    const aim = (dx / Math.max(100, Math.abs(dy))) * 205;
-    const windEffect = wind * 4.2;
-    const targetX = goal.x + aim + windEffect;
-    const short = power < .43;
-    const atPost = Math.abs(Math.abs(targetX - goal.x) - goal.half) < 10 && !short;
-    const made = !short && Math.abs(targetX - goal.x) < goal.half - 8;
+    const power = Math.max(0, Math.min(1, distance / 240));
+    const swipeAim = (dx / Math.max(100, Math.abs(dy))) * 185;
+    const timingPenalty = aimOsc * 72;
+    const windEffect = wind * 5.8;
+    const targetX = goal.x + swipeAim + timingPenalty + windEffect;
+    const short = power < .52;
+    const atPost = Math.abs(Math.abs(targetX - goal.x) - goal.half) < 16 && !short;
+    const made = !short && Math.abs(targetX - goal.x) < goal.half - 18;
     const type = made ? 'made' : short ? 'short' : atPost ? 'doink' : targetX < goal.x ? 'left' : 'right';
     animateKick(targetX, power, type);
   }
@@ -608,7 +661,8 @@
   });
   window.addEventListener('resize', resizeCanvas);
 
-  document.body.dataset.screen = 'start';
+  body.dataset.screen = currentScreen;
   updateStats();
   newWind();
+  kickLoop();
 })();
