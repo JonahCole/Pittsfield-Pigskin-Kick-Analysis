@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#030914" />
+  <title>Free Fantasy Advice</title>
+  <link rel="stylesheet" href="style.css?v=3.1.1" />
+</head>
+<body>
+  <button id="soundBtn" class="sound-toggle" aria-label="Toggle sound">SOUND: ON</button>
+
+  <main id="app" class="console-shell">
+    <section id="startScreen" class="screen start-screen active" aria-label="Start screen">
+      <div class="stadium-bg" aria-hidden="true">
+        <div class="lights left"></div><div class="lights right"></div>
+        <div class="field-glow"></div>
+      </div>
+
+      <div class="start-content">
+        <div class="eyebrow"><span>EST. 2017</span><span>HARD KICKS. HARDER TAKES.</span></div>
+        <div class="logo-lockup">
+          <div class="logo-top">FREE</div>
+          <h1>FANTASY<br>ADVICE</h1>
+          <div class="football-mark" aria-hidden="true">◆</div>
+        </div>
+        <p class="tagline">KICK A FIELD GOAL.<br>GET EXPERT ANALYSIS.</p>
+
+        <div class="start-menu game-panel">
+          <div class="menu-label">PLAY THE GAME</div>
+          <div class="menu-copy">Make the kick and get Nate &amp; Shane's advice.<br>Miss and get what you deserve.</div>
+          <button id="startBtn" class="menu-btn primary">KICK NOW</button>
+        </div>
+
+        <div class="qualification">EXPERTS SELECTED WITHOUT REGARD TO QUALIFICATIONS.</div>
+      </div>
+    </section>
+
+    <section id="kickScreen" class="screen kick-screen" aria-label="Field goal attempt">
+      <header class="game-hud">
+        <div class="hud-box attempt-box">
+          <span>FIELD GOAL ATTEMPT</span>
+          <strong>35 YARDS</strong>
+        </div>
+        <div class="hud-box stats-box">
+          <span>KICKS <b id="kicksStat">0</b></span>
+          <span>MADE <b id="madeStat">0</b></span>
+          <span>PCT <b id="pctStat">---</b></span>
+        </div>
+        <div class="hud-box wind-box">
+          <span>WIND</span>
+          <strong id="windReadout">→ 4 MPH</strong>
+        </div>
+      </header>
+
+      <div id="gameFrame" class="game-frame game-panel">
+        <canvas id="gameCanvas" width="960" height="720" aria-label="Swipe upward to kick the football"></canvas>
+        <div id="kickPrompt" class="kick-prompt">
+          <strong>SWIPE UP TO KICK</strong>
+          <span>AIM • POWER • RELEASE</span>
+        </div>
+        <div id="resultFlash" class="result-flash" hidden></div>
+        <div id="timelineGlitch" class="timeline-glitch" hidden>
+          <strong>⚠ TIMELINE ANOMALY ⚠</strong>
+          <span>RAMSEY SAYS THIS DID NOT HAPPEN THE FIRST TIME</span>
+        </div>
+      </div>
+
+      <div class="kick-footer">
+        <span>SAME LEAGUE. BIGGER MOUTHS.</span>
+        <button id="kickMenuBtn" class="text-btn">MAIN MENU</button>
+      </div>
+    </section>
+
+    <section id="shameScreen" class="screen shame-screen" aria-label="Missed field goal">
+      <div class="shame-field" aria-hidden="true">
+        <div class="shame-post left-post"></div>
+        <div class="shame-post right-post"></div>
+        <div class="shame-crossbar"></div>
+        <div class="referee"><div class="ref-head"></div><div class="ref-body"></div><div class="ref-arm a"></div><div class="ref-arm b"></div></div>
+      </div>
+      <div class="shame-content">
+        <div class="no-good">NO GOOD!</div>
+        <div id="missLabel" class="miss-label">WIDE RIGHT</div>
+        <div class="shame-card game-panel">
+          <div class="shame-title">TODAY'S SHAME</div>
+          <p id="shameText">The Browns have seen cleaner execution.</p>
+          <div id="shameBy" class="shame-by">— NATE</div>
+        </div>
+        <div class="screen-actions">
+          <button id="tryAgainBtn" class="menu-btn primary">TRY AGAIN</button>
+          <button id="shameMenuBtn" class="menu-btn">MAIN MENU</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="adviceScreen" class="screen advice-screen" aria-label="Fantasy advice booth">
+      <header class="broadcast-header">
+        <span>★</span><strong>FREE FANTASY ADVICE</strong><span>★</span>
+        <small>EST. 2017</small>
+      </header>
+
+      <div class="booth-shell game-panel">
+        <div class="booth-window">
+          <div class="booth-sky"></div>
+          <div class="booth-stands"></div>
+          <div class="booth-field"></div>
+          <div class="booth-goal"><i></i><b></b><em></em></div>
+          <div id="timelineBadge" class="timeline-badge" hidden>RAMSEY TIMELINE EVENT</div>
+        </div>
+
+        <div class="analyst analyst-nate">
+          <img src="assets/img/nate-cutout.png" alt="Retro game portrait of Nate" />
+          <div class="nameplate"><strong>NATE</strong><span>THE ANALYST</span></div>
+        </div>
+        <div class="analyst analyst-shane">
+          <img src="assets/img/shane-cutout.png" alt="Retro game portrait of Shane" />
+          <div class="nameplate"><strong>SHANE</strong><span>THE CO-HOST</span></div>
+        </div>
+        <div class="booth-desk"><span>DATA</span><b>FREE ADVICE</b><span>VIBES</span></div>
+      </div>
+
+      <div class="advice-grid">
+        <article class="take-card nate-take game-panel">
+          <div class="take-heading"><span>NATE'S TAKE</span><small>EXHAUSTED. UNIMPRESSED. OFTEN RIGHT.</small></div>
+          <p id="nateAdvice">Solid kick. Now try not to ruin it with your draft.</p>
+        </article>
+        <article class="take-card shane-take game-panel">
+          <div class="take-heading"><span>SHANE'S TAKE</span><small>CONFIDENT. QUICK WITH A JOKE. HAS A TAKE.</small></div>
+          <p id="shaneAdvice">Good kick. Don't get cute.</p>
+        </article>
+      </div>
+
+      <div class="screen-actions advice-actions">
+        <button id="playAgainBtn" class="menu-btn primary">PLAY AGAIN</button>
+        <button id="adviceMenuBtn" class="menu-btn">MAIN MENU</button>
+      </div>
+
+      <div class="ticker" aria-label="League lore ticker">
+        <div class="ticker-track">
+          <span>MATT = SEVENTH PLACE (AVG 7.14)</span><i>◆</i>
+          <span>RAMSEY SAYS THE TIMELINE WAS REAL</span><i>◆</i>
+          <span>TETI = RODGERS 5X</span><i>◆</i>
+          <span>JIMBO = OLD, GOOD, INSUFFERABLE</span><i>◆</i>
+          <span>JUSTIN = BROWNS + BUSCH LIGHT = HARD MODE</span><i>◆</i>
+          <span>SHANE = MATT GAY 5 STRAIGHT</span><i>◆</i>
+          <span>MATT = SEVENTH PLACE (AVG 7.14)</span><i>◆</i>
+          <span>RAMSEY SAYS THE TIMELINE WAS REAL</span><i>◆</i>
+          <span>TETI = RODGERS 5X</span><i>◆</i>
+          <span>JUSTIN = BROWNS + BUSCH LIGHT = HARD MODE</span><i>◆</i>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js?v=3.1.1"></script>
+</body>
+</html>
