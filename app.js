@@ -40,94 +40,85 @@
   }
 
   const advicePairs = [
-    {
-      nate: 'Solid kick. Now try not to ruin it with your draft. Take value when it falls and stop inventing reasons to pass on good players.',
-      shane: 'Good kick. Good vibes. Draft the guy you want. Regret is tomorrow’s problem.'
-    },
-    {
-      nate: 'Matt’s seven-year average finish is 7.14. That is no longer a slump. It is an address.',
-      shane: 'If Matt loves the pick, let him have it. Seventh place needs players too.'
-    },
-    {
-      nate: 'Jimbo has an average finish under third in the data we pulled. Unfortunately, this gives the old bastard statistical permission to keep talking shit.',
-      shane: 'Jim is going to make fun of your pick either way. At least make him work for it.'
-    },
-    {
-      nate: 'Ramsey remembers the original timeline, before the rest of you started drafting and ruining everything. The annoying part is he has actually won enough to keep believing this.',
-      shane: 'Ramsey was taking your guy next. He has the almanac, three screenshots, and a theory about why the commissioner changed the future.'
-    },
-    {
-      nate: 'Teti has drafted Aaron Rodgers five times. At some point roster construction becomes a long-term relationship.',
-      shane: 'If Rodgers is still on the board, somebody tell Teti there’s a call. We can save him from himself.'
-    },
-    {
-      nate: 'Teti being late may actually be an advantage. It prevents him from participating in the part where everybody in this room overthinks the obvious answer.',
-      shane: 'Teti will blame a bad pick on a fire call. You’ll blame yours on research. His excuse is better.'
-    },
-    {
-      nate: 'Chad has the first pick. The advanced strategy is to take the player everyone agrees should go first and resist the urge to prove you are smarter than the room.',
-      shane: 'Chad, take the obvious guy. This is fantasy football, not a Patriots trade-down seminar.'
-    },
-    {
-      nate: 'Jay tends to look dangerous early. Draft for December, not for the part of the season when everybody starts saying Jay’s team looks scary.',
-      shane: 'Jay loves action. If he says a pick is a lock, ask whether he means fantasy or a parlay.'
-    },
-    {
-      nate: 'Farkas quietly went from the basement to first over several seasons. That is either patience or the slowest criminal enterprise in league history.',
-      shane: 'Worry about the quiet guy. He spends all the time Ramsey uses arguing actually thinking.'
-    },
-    {
-      nate: 'Justin is new, drinks Busch Light by choice, and roots for the Browns. We do not have draft history, but those are three significant warning indicators.',
-      shane: 'Busch Light and the Browns. Justin came into this league pre-trained for disappointment. Honestly, that might make him dangerous.'
-    },
-    {
-      nate: 'Justin is six-foot-infinity and still chose Busch Light. Height clearly does not correlate with judgment.',
-      shane: 'Prince of Edinboro. Browns fan. Busch Light. If Create-a-Player had a bad-decisions slider, Justin maxed it out.'
-    },
-    {
-      nate: 'Justin is reportedly outselling Matt at Husqvarna. If he takes Matt’s sleeper too, I assume regional management gets involved.',
-      shane: 'Matt, you cannot let the new guy take your accounts and your running back. Have some professional pride.'
-    },
-    {
-      nate: 'Pia’s draft-order process is at least as defensible as the strategic process most of you will use tonight.',
-      shane: 'Pia already did her job. If you hate your slot, take it up with a child.'
-    },
-    {
-      nate: 'Most of these guys have known each other since they were kids and spent years at Jimbo’s house. Decades of familiarity have somehow produced no competitive advantage.',
-      shane: 'They grew up together, hung around Jim’s house, and learned one thing: never give anybody a clean opening to talk shit.'
-    },
-    {
-      nate: 'Shane was projected first after a draft and finished tenth. We still gave him half of this booth. That is a governance failure.',
-      shane: 'Projections are just numbers with anxiety. I had a take. I stand by having had it.'
-    },
-    {
-      nate: 'Shane drafted Matt Gay five straight years. I am not calling it strategy. I am not calling it healthy. I am simply documenting it.',
-      shane: 'That is called brand consistency. Look it up.'
-    },
-    {
-      nate: 'Do not get cute in the middle rounds. You need starters and useful depth, not a roster you have to explain like modern art.',
-      shane: 'Take good players. I cannot believe we are giving this level of analysis away for free.'
-    },
-    {
-      nate: 'You do not need to win the draft tonight. You need to avoid doing something everyone will remember for the next eight years.',
-      shane: 'Exactly. Be memorable later. Preferably when you are holding the trophy.'
-    },
-    {
-      nate: 'The lion-and-cheetah joke is not strategy. It has never been strategy. I have asked Shane to stop treating it like strategy.',
-      shane: 'One day a lion and a cheetah played cards. The cheetah won. Lion says, “you cheetah!” Cheetah says, “you lion!” Still works.'
-    },
-    {
-      nate: 'If Ramsey says collusion, first determine whether someone simply selected a player he wanted. That resolves most cases.',
-      shane: 'If the corkboard comes out before Round 5, we are ahead of schedule.'
-    },
-    {
-      nate: 'Christian McCaffrey has appeared in Jonah’s first round more than once. Familiarity is not analysis, but at least it is a coherent addiction.',
-      shane: 'If your guy keeps working, keep taking him. If he stops working, pretend Nate told you to do it.'
-    },
-    {
-      nate: 'Jimbo has been giving half this room shit since before fantasy football apps existed. You are not going to out-heckle him tonight. Build a better roster instead.',
-      shane: 'If Jim starts laughing before you finish announcing the pick, just keep talking. Showing fear feeds him.'
-    }
+    // General
+    { weight:2.2, nate:'Solid kick. Now try not to ruin it with your draft. Take value when it falls and stop inventing reasons to pass on good players.', shane:'Good kick. Draft the guy you want. Regret is tomorrow’s problem.' },
+    { weight:2.0, nate:'You do not need to win the draft tonight. You need to avoid doing something everyone will remember for the next eight years.', shane:'Exactly. Be memorable later. Preferably when you are holding the trophy.' },
+    { weight:2.0, nate:'Do not get cute in the middle rounds. You need starters and useful depth, not a roster you have to explain like modern art.', shane:'Take good players. I cannot believe we are giving this level of analysis away for free.' },
+
+    // Matt Mazzer
+    { weight:4.5, nate:'Matt’s seven-year average finish is 7.14. That is no longer a slump. It is an address.', shane:'If Matt loves the pick, let him have it. Seventh place needs players too.' },
+    { weight:4.5, nate:'The commissioner knows the rules. The standings suggest that knowledge has not transferred to roster construction.', shane:'Matt can run the league or win it. Asking for both feels greedy.' },
+    { weight:4.5, nate:'If Justin takes Matt’s sleeper after already outselling him at Husqvarna, I assume regional management gets involved.', shane:'Matt, you cannot lose the account and the running back. Have some professional pride.' },
+
+    // Jimbo
+    { weight:3.2, nate:'Jimbo has an average finish under third in the data we pulled. Unfortunately, this gives the old bastard statistical permission to keep talking shit.', shane:'Jim is going to make fun of your pick either way. At least make him work for it.' },
+    { weight:3.2, nate:'Jimbo has been giving half this room shit since before fantasy football apps existed. You are not going to out-heckle him tonight. Build a better roster instead.', shane:'If Jim starts laughing before you finish announcing the pick, just keep talking. Showing fear feeds him.' },
+    { weight:3.2, nate:'Several people in this league basically grew up at Jimbo’s house. Somehow decades of exposure produced zero immunity to his bad jokes.', shane:'The old man has been farming material on these guys since puberty.' },
+    { weight:3.2, nate:'Jimbo drafted Justin Tucker four times. Apparently the only thing he trusts more than his own jokes is an elite kicker.', shane:'Respect the commitment. Weirdly, kickers may be the most stable relationships in this league.' },
+
+    // Ramsey
+    { weight:3.2, nate:'Ramsey remembers the original timeline, before the rest of you started drafting and ruining everything. The annoying part is he has actually won enough to keep believing this.', shane:'Ramsey was taking your guy next. He has the almanac, three screenshots, and a theory about why the commissioner changed the future.' },
+    { weight:3.2, nate:'If Ramsey says collusion, first determine whether someone simply selected a player he wanted. That resolves most cases.', shane:'If the corkboard comes out before Round 5, we are ahead of schedule.' },
+    { weight:3.2, nate:'Ramsey’s board was perfect before nine other people began making picks. He considers this evidence of interference.', shane:'Somebody changed the future again. He can feel it.' },
+    { weight:3.2, nate:'Ramsey won enough in the past to make every new conspiracy slightly harder to dismiss. That is the real tragedy here.', shane:'The lunatic has receipts. Not good receipts, but receipts.' },
+
+    // Teti
+    { weight:3.6, nate:'Teti has drafted Aaron Rodgers five times. At some point roster construction becomes a long-term relationship.', shane:'If Rodgers is still on the board, somebody tell Teti there’s a call. We can save him from himself.' },
+    { weight:3.6, nate:'Teti being late may actually be an advantage. It prevents him from participating in the part where everybody in this room overthinks the obvious answer.', shane:'Teti will blame a bad pick on a fire call. You’ll blame yours on research. His excuse is better.' },
+    { weight:3.6, nate:'Teti can miss half the room, inherit whatever roster is left, and somehow turn it into a functional team. Infuriating.', shane:'The mustache has survived worse drafts than this.' },
+
+    // Justin
+    { weight:2.7, nate:'Justin is new, drinks Busch Light by choice, and roots for the Browns. We do not have draft history, but those are three significant warning indicators.', shane:'Busch Light and the Browns. Justin came into this league pre-trained for disappointment. Honestly, that might make him dangerous.' },
+    { weight:2.7, nate:'Justin is six-foot-infinity and still chose Busch Light. Height clearly does not correlate with judgment.', shane:'Prince of Edinboro. Browns fan. Busch Light. If Create-a-Player had a bad-decisions slider, Justin maxed it out.' },
+    { weight:2.7, nate:'Justin is reportedly outselling Matt at Husqvarna. If he also outdrafts him, this becomes an HR issue.', shane:'The new guy sells power equipment to the Amish and somehow the Browns are still the weirdest thing about him.' },
+    { weight:2.7, nate:'A Browns fan who drinks Busch Light is entering a league full of childhood friends and thinks the rules are written down somewhere. Adorable.', shane:'Welcome aboard, Justin. We haze because we care. Mostly.' },
+
+    // Jonah
+    { weight:2.3, nate:'Christian McCaffrey has appeared in Jonah’s first round more than once. Familiarity is not analysis, but at least it is a coherent addiction.', shane:'If your guy keeps working, keep taking him. If he stops working, pretend Nate told you to do it.' },
+    { weight:2.3, nate:'Jonah once took Maurice Jones-Drew first overall and then watched the injury report eat the season. Some draft scars do not heal.', shane:'You drafted MJD at 1.01 and eventually built an app for advice. Honestly, that tracks.' },
+    { weight:2.3, nate:'Jonah built an entire application, loaded years of league data, and still came here for advice. Information was apparently not the bottleneck.', shane:'Making your own experts is one way to avoid admitting you still do not know who to draft.' },
+    { weight:2.3, nate:'McCaffrey in the first round multiple times. Maurice Jones-Drew first overall once. This is less a draft strategy than attachment theory.', shane:'At least Jonah’s bad decisions come with documentation now.' },
+
+    // Chad
+    { weight:2.0, nate:'Chad has the first pick. The advanced strategy is to take the obvious player and resist the urge to prove you are smarter than the room.', shane:'Chad, take the obvious guy. This is fantasy football, not a Patriots trade-down seminar.' },
+    { weight:2.0, nate:'Chad’s commitment to the league appears to fluctuate with the standings. That is not ideal for a man holding the first pick.', shane:'If Chad starts 1–4, somebody check whether he still believes in fantasy football as a concept.' },
+    { weight:2.0, nate:'Chad lives in North Carolina and remains emotionally headquartered in Foxborough. Some people simply refuse to move on.', shane:'North Carolina address, Patriots heart, and one foot out the fantasy door. Complicated man.' },
+    { weight:2.0, nate:'First overall gives Chad nowhere to hide. If he screws this up, retirement talk could begin before appetizers.', shane:'Win the league or threaten to leave it. Strong negotiating position.' },
+
+    // Jay
+    { weight:3.4, nate:'Jay tends to look dangerous early. Draft for December, not for the part of the season when everybody starts saying Jay’s team looks scary.', shane:'Jay loves action. If he says a pick is a lock, ask whether he means fantasy or a parlay.' },
+    { weight:3.4, nate:'Drafting at Jay’s house gives him home-field advantage until roughly the point his usual late-season fade begins.', shane:'If Jay loses a bet tonight, Jimbo has already won something.' },
+
+    // Farkas
+    { weight:3.0, nate:'Farkas quietly went from the basement to first over several seasons. That is either patience or the slowest criminal enterprise in league history.', shane:'Worry about the quiet guy. He spends all the time Ramsey uses arguing actually thinking.' },
+    { weight:3.0, nate:'Farkas says almost nothing and recently won the league. Silence may be the only strategy nobody here has ruined yet.', shane:'He is in the background because the rest of you keep volunteering to embarrass yourselves in the foreground.' },
+
+    // Shane / kicker lore / booth meta
+    { weight:2.7, nate:'Shane was projected first after a draft and finished tenth. We still gave him half of this booth. That is a governance failure.', shane:'Projections are just numbers with anxiety. I had a take. I stand by having had it.' },
+    { weight:2.7, nate:'Shane drafted Matt Gay five straight years. I am not calling it strategy. I am simply documenting a fixation.', shane:'That is called brand consistency. Also, my kicker is Gay.' },
+    { weight:2.7, nate:'Jimbo kept going back to Justin Tucker. Shane kept going back to Matt Gay. Apparently this league forms its strongest attachments at kicker.', shane:'Correct. Also, my kicker is Gay.' },
+
+    // Pia / group lore
+    { weight:1.8, nate:'Pia’s draft-order process is at least as defensible as the strategic process most of you will use tonight.', shane:'Pia already did her job. If you hate your slot, take it up with a child.' },
+    { weight:1.8, nate:'Most of these guys have known each other since they were kids and spent years at Jimbo’s house. Decades of familiarity have somehow produced no competitive advantage.', shane:'They grew up together and learned one thing: never give anybody a clean opening to talk shit.' },
+    { weight:1.4, nate:'The lion-and-cheetah joke is not strategy. It has never been strategy. I have asked Shane to stop treating it like strategy.', shane:'One day a lion and a cheetah played cards. The cheetah won. Lion says, “you cheetah!” Cheetah says, “you lion!” Still works.' }
+  ];
+
+  const shaneTags = [
+    'Also, my kicker is Gay.',
+    'Unrelated: my kicker is Gay.',
+    'And before we move on: my kicker is Gay.',
+    'Five straight years. Matt Gay. That is roster continuity. Also, my kicker is Gay.',
+    'I have nothing else to add. Except that my kicker is Gay.'
+  ];
+
+  const nateGripes = [
+    'For the record, my draft was the best. The rest was luck.',
+    'My draft was the best. Fantasy outcomes are mostly noise.',
+    'I had the best roster on paper. Unfortunately they insist on playing the games.',
+    'Drafting is skill. Everything after that is a four-month hostage situation.',
+    'My roster construction was excellent. I will not be taking questions about the standings.',
+    'The draft grade was elite. What happened afterward is variance.'
   ];
 
   const timelinePairs = [
@@ -151,48 +142,64 @@
 
   const misses = {
     any: [
-      { by:'NATE', text:'Our model had that kick as makeable. We failed to account for you.' },
-      { by:'SHANE', text:'Pia picked the draft order with more precision than that.' },
-      { by:'NATE', text:'Farkas said nothing. Somehow that was still the harshest reaction.' },
-      { by:'SHANE', text:'Teti could have kicked that between calls.' },
-      { by:'NATE', text:'The commissioner reviewed the play. Unfortunately it still sucked.' },
-      { by:'SHANE', text:'Ramsey was going to miss that exact kick next.' },
-      { by:'NATE', text:'Jimbo already has a joke about that. You will hear it until somebody dies.' },
-      { by:'SHANE', text:'Justin drinks Busch Light and somehow YOUR judgment is what we’re discussing.' },
-      { by:'NATE', text:'The Browns have seen cleaner execution. That sentence should embarrass you.' },
-      { by:'SHANE', text:'Matt finishes seventh more accurately than you kick.' },
-      { by:'NATE', text:'Shane has three tenth-place finishes in the data and even he is disappointed.' },
-      { by:'SHANE', text:'Jimbo has been talking shit since these guys were kids. Congratulations on handing him fresh material.' },
-      { by:'NATE', text:'Justin voluntarily combines Browns football with Busch Light. He has suffered enough to kick better than that.' },
-      { by:'SHANE', text:'Busch Light tastes like somebody missed a field goal. So at least Justin will understand this.' }
+      { weight:.8, by:'NATE', text:'Our model had that kick as makeable. We failed to account for you.' },
+      { weight:.8, by:'SHANE', text:'Pia picked the draft order with more precision than that.' },
+      { weight:1.0, by:'NATE', text:'Farkas said nothing. Somehow that was still the harshest reaction.' },
+      { weight:1.2, by:'SHANE', text:'Teti could have kicked that between calls.' },
+      { weight:1.2, by:'NATE', text:'The commissioner reviewed the play. Unfortunately it still sucked.' },
+      { weight:1.2, by:'SHANE', text:'Ramsey was going to miss that exact kick next.' },
+      { weight:1.2, by:'NATE', text:'Jimbo already has a joke about that. You will hear it until somebody gives him new material.' },
+      { weight:1.2, by:'SHANE', text:'Justin drinks Busch Light and somehow YOUR judgment is what we’re discussing.' },
+      { weight:1.1, by:'NATE', text:'The Browns have seen cleaner execution. Justin should be uniquely qualified to explain this feeling.' },
+      { weight:1.2, by:'SHANE', text:'Matt finishes seventh more accurately than you kick.' },
+      { weight:1.0, by:'NATE', text:'Shane has three tenth-place finishes in the data and even he is disappointed.' },
+      { weight:1.2, by:'SHANE', text:'Jimbo has been talking shit since these guys were kids. Congratulations on handing him fresh material.' },
+      { weight:1.1, by:'NATE', text:'Justin voluntarily combines Browns football with Busch Light. He has suffered enough to kick better than that.' },
+      { weight:1.1, by:'SHANE', text:'Busch Light tastes like somebody missed a field goal. So at least Justin will understand this.' },
+      { weight:1.1, by:'NATE', text:'Jonah once took Maurice Jones-Drew first overall. Somehow this kick has reopened the case.' },
+      { weight:1.1, by:'SHANE', text:'MJD at 1.01 and now this kick? Jonah has been chasing redemption for years.' },
+      { weight:1.1, by:'NATE', text:'Jonah built the app, loaded the history, and still missed. Information was not the problem.' },
+      { weight:1.05, by:'SHANE', text:'Chad saw that kick and is reconsidering whether he wants to play this season.' },
+      { weight:1.05, by:'NATE', text:'Missed. Chad has placed the league on notice and may reassess participation pending the standings.' },
+      { weight:1.05, by:'SHANE', text:'If Chad starts the year the way you kicked that, retirement rumors begin Week 2.' },
+      { weight:1.0, by:'NATE', text:'Jay would have bet the under on that kick and Jimbo would still find a way to make fun of him for it.' },
+      { weight:1.0, by:'SHANE', text:'Farkas has already returned to silently judging everyone.' },
+      { weight:1.0, by:'NATE', text:'Jimbo drafted Justin Tucker four times. Maybe ask the old man how kicking works.' },
+      { weight:1.0, by:'SHANE', text:'I drafted Matt Gay five straight years and even I cannot defend that kick.' }
     ],
     left: [
       { by:'NATE', text:'Wide left. The football demonstrated a strong preference for somewhere else.' },
       { by:'SHANE', text:'Wide left. You were not kicking to Farkas’s house.' },
       { by:'NATE', text:'Ramsey would like to know whether the left upright colluded against him.' },
       { by:'SHANE', text:'That kick had less direction than Matt’s path out of seventh.' },
-      { by:'NATE', text:'Expected field goal: yes. Observed field goal: whatever that was.' }
+      { by:'NATE', text:'Expected field goal: yes. Observed field goal: whatever that was.' },
+      { by:'SHANE', text:'Jonah’s Maurice Jones-Drew pick had a clearer path forward.' },
+      { by:'NATE', text:'Chad has the first pick and somehow you are the one already wasting good field position.' }
     ],
     right: [
       { by:'SHANE', text:'Wide right. You’re drafting a kicker in the second round, aren’t you?' },
       { by:'NATE', text:'Tracking briefly classified that as a pass.' },
       { by:'SHANE', text:'That thing is headed toward Edinboro. Justin, duck.' },
       { by:'NATE', text:'Justin could sell that kick as a Husqvarna attachment and Matt would still lose the account.' },
-      { by:'SHANE', text:'Even Ramsey cannot argue that one through.' }
+      { by:'SHANE', text:'Even Ramsey cannot argue that one through.' },
+      { by:'NATE', text:'The Patriots have executed cleaner exits from a dynasty. Chad can explain.' }
     ],
     short: [
       { by:'SHANE', text:'Short. Story of the entire effort.' },
       { by:'NATE', text:'The kick had the ambition of a seventh-place roster.' },
       { by:'SHANE', text:'Justin’s Busch Light can traveled farther.' },
       { by:'NATE', text:'The football appears to have reconsidered midway through the attempt.' },
-      { by:'SHANE', text:'Jimbo’s dad jokes have more distance.' }
+      { by:'SHANE', text:'Jimbo’s dad jokes have more distance.' },
+      { by:'NATE', text:'Chad’s commitment to the league has more staying power than that kick, and that is saying something.' }
     ],
     doink: [
       { by:'SHANE', text:'DOINK. That is the closest you’re getting to useful advice.' },
       { by:'NATE', text:'Technically impressive. Practically worthless.' },
       { by:'SHANE', text:'Hit the post harder than Jay hits a sportsbook.' },
       { by:'NATE', text:'Ramsey has filed a protest arguing that the upright moved.' },
-      { by:'SHANE', text:'Matt says it almost counted. This explains some standings.' }
+      { by:'SHANE', text:'Matt says it almost counted. This explains some standings.' },
+      { by:'NATE', text:'Jimbo and Shane have drafted enough kickers to know that was embarrassing.' },
+      { by:'SHANE', text:'My kicker is Gay. He would have made that.' }
     ]
   };
 
@@ -215,7 +222,7 @@
   const goal = { x: 477, half: 76, crossbar: 277, top: 56 };
 
   const kickBg = new Image();
-  kickBg.src = 'assets/img/kick-reference.png?v=3.1.1';
+  kickBg.src = 'assets/img/kick-reference.png?v=3.4.0';
   kickBg.onload = () => { if (currentScreen === 'kick') draw(); };
 
   function showScreen(name) {
@@ -232,27 +239,56 @@
     window.scrollTo(0, 0);
   }
 
-  function uniqueIndex(length, previous) {
-    if (length < 2) return 0;
-    let i = Math.floor(Math.random() * length);
-    if (i === previous) i = (i + 1 + Math.floor(Math.random() * (length - 1))) % length;
-    return i;
+  function weightedIndex(pool, previous = -1) {
+    const eligible = pool.map((item, i) => ({ item, i })).filter(x => pool.length < 2 || x.i !== previous);
+    const total = eligible.reduce((sum, x) => sum + (x.item.weight ?? 1), 0);
+    let roll = Math.random() * total;
+    for (const x of eligible) {
+      roll -= (x.item.weight ?? 1);
+      if (roll <= 0) return x.i;
+    }
+    return eligible[eligible.length - 1].i;
+  }
+
+  function weightedItem(pool) {
+    const total = pool.reduce((sum, item) => sum + (item.weight ?? 1), 0);
+    let roll = Math.random() * total;
+    for (const item of pool) {
+      roll -= (item.weight ?? 1);
+      if (roll <= 0) return item;
+    }
+    return pool[pool.length - 1];
   }
 
   function selectAdvice(timeline = false) {
     const pool = timeline ? timelinePairs : advicePairs;
-    const i = uniqueIndex(pool.length, timeline ? -1 : lastAdvice);
+    const i = timeline ? Math.floor(Math.random() * pool.length) : weightedIndex(pool, lastAdvice);
     if (!timeline) lastAdvice = i;
     const pair = pool[i];
-    nateAdvice.textContent = pair.nate;
-    shaneAdvice.textContent = pair.shane;
+    let nate = pair.nate;
+    let shane = pair.shane;
+
+    // Recurring obsessions make the booth feel like two actual people, not quote cards.
+    if (Math.random() < .18 && !/my kicker is Gay/i.test(shane)) {
+      shane += ` ${shaneTags[Math.floor(Math.random() * shaneTags.length)]}`;
+      if (Math.random() < .28) nate += ' Yes, Shane. We know about Matt Gay.';
+    }
+    if (Math.random() < .14) {
+      nate += ` ${nateGripes[Math.floor(Math.random() * nateGripes.length)]}`;
+    }
+
+    nateAdvice.textContent = nate;
+    shaneAdvice.textContent = shane;
     timelineBadge.hidden = !timeline;
   }
 
   function selectShame(type) {
     const pool = [...(misses[type] || []), ...misses.any];
-    let item = pool[Math.floor(Math.random() * pool.length)];
-    if (pool.length > 1 && item.text === lastMiss) item = pool[(pool.indexOf(item) + 1) % pool.length];
+    let item = weightedItem(pool);
+    if (pool.length > 1 && item.text === lastMiss) {
+      const alternatives = pool.filter(x => x.text !== lastMiss);
+      item = weightedItem(alternatives);
+    }
     lastMiss = item.text;
     shameText.textContent = item.text;
     shameBy.textContent = `— ${item.by}`;

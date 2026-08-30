@@ -1,3 +1,19 @@
+# Pittsfield Pigskin Fantasy Draft Advice — V3.4 SHIP
+
+Ship candidate. Keeps the stable V3.3 mobile layout and harder timing mechanic, with the final content pass:
+
+- Rebalanced heckles across the league while still favoring the members with the most material.
+- Added Chad 1.01 / Patriots / "only wants to play if he wins" material.
+- Added Jonah Maurice Jones-Drew 1.01, McCaffrey, and "built the app" self-owns.
+- Preserved and expanded Justin Browns + Busch Light hazing.
+- Preserved Ramsey timeline/conspiracy material.
+- Expanded Jimbo patriarch / Justin Tucker material.
+- Shane now randomly interrupts unrelated advice to brag that his kicker is Gay (Matt Gay).
+- Nate now randomly complains that his draft was the best and the rest is luck.
+- Kicker lore now includes Jimbo/Justin Tucker and Shane/Matt Gay.
+
+Upload `index.html`, `app.js`, `style.css`, `README.md`, and `assets/` directly to the repository root.
+
 # Fantasy Kick Advice – V3.3
 
 Harder kick mechanic added: the kick now uses a moving timing window on top of the swipe, increasing miss probability without changing the overall flow.
